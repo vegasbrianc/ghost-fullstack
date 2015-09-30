@@ -1,0 +1,24 @@
+ghost:
+  build: ghost/
+  environment:
+    VIRTUAL_HOST: "brianchristner.io"
+    NODE_ENV: "production"
+    PUBLIC_URL: "www.brianchristner.io"
+  volumes:
+    - /host_directory:/app/content/data
+    - /host_directory:/app/content/images
+    - /host_directory:/app/content/themes
+  expose:
+    - "2368"
+  restart: always
+  
+haproxy:
+  image tutm/haproxy
+  links: 
+  - "ghost"
+  ports:
+  - "80:80"
+  enviornment:
+  - BACKEND_PORT=2368
+  - BALANCE=roundrobin
+  
