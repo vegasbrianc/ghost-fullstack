@@ -1,3 +1,5 @@
+#Work in Progress. Stay tuned until we complete development.
+
 #Ghost CMS Stack
 
 Here is a Ghost stack built with docker-compose. This stack is built with the tutum/haproxy, a mariaDB database, a storage container to store images & themes, and of course the Ghost CMS.
